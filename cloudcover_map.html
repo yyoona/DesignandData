@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Load google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap"
+        rel="stylesheet">
+
+    <!-- Load style -->
+    <link rel="stylesheet" href="style_map.css" />
+    <link rel="icon" type="image/x-icon" href="Images/favicon.ico">
+
+    <title>cloud_map</title>
+
+    <!-- Load js dataset -->
+    <script src="cloudcover_2022.js"></script>
+
+</head>
+
+<body>
+    <div class="title">
+        <p>This page tries to discover the darkest day and month by observing the cloud cover in Finland based on the
+            data of 2022. (Data source: Finnish meteorological institute)</p>
+        <header>
+            <h1>How dark is <br>Finlands sky?</h1>
+            <div class="viewButton">
+                <a href="cloudcover_bar.html"><button class="btn_flow">Cloud<br>Flow</button></a>
+                <a href="cloudcover_map.html"><button class="btn_proportion">Cloud<br>Proportion</button></a>
+            </div>
+        </header>
+    </div>
+
+    <script>
+
+        // set the dimensions and margins of the chart
+        var margin = 30,
+            width = window.innerWidth - margin * 3,
+            height = window.innerHeight;
+
+        // append the svg object to the body of the page
+        var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+
+        // data rollup before making the hierachy to reduce each group
+        var treeData = d3.rollup(cloud,
+            function (v) { return v.length }, // length indicates the value
+            function (d) { return d.CloudAmount },
+            // function (d) { return d.Day },
+            // function (d) { return d.Time },
+            function (d) { return d.Month }
+        )
+
+        // give the data to the cluster layout
+        var root = d3.hierarchy(treeData).sum(function (d) { return d[1] })
+
+        //d3.treemap computes the position of each element of the hierarchy
+        var treemapLayout = d3.treemap();
+        treemapLayout
+            .size([width, height])
+            .paddingOuter(12)
+            .paddingInner(6);
+
+        treemapLayout(root)
+
+        // generate and return an array of descendant nodes
+        var nodes = root.descendants()
+
+        // draw rectangels
+        svg
+            .selectAll("rect")
+            .data(nodes)
+            .join("rect")
+            .attr("x", function (d) { return d.x0; })
+            .attr("y", function (d) { return d.y0; })
+            .attr("width", function (d) { console.log((d.x1 - d.x0) > 5); return d.x1 - d.x0; })
+            .attr("height", function (d) { return d.y1 - d.y0; })
+            .attr("rx", 10)
+            .on("mouseover", function (e, d) {
+                var i = nodes.indexOf(d)
+                console.log(d.data[0], i, "#" + d.data[0] + i)
+                var name = d.data[0]
+                if (name === "") { name = "unamed" }
+                d3.select("#" + name + i).attr("opacity", 1)
+            })
+            .on("mouseout", function (e, d) {
+                var i = nodes.indexOf(d)
+                var name = d.data[0]
+                if (name === "") { name = "unamed" }
+                d3.select("#" + name + i).attr("opacity", function (d) {
+                    if ((d.x1 - d.x0) > 70) {
+                        return 1
+                    }
+                    return 0
+                })
+            })
+
+        // add text labels
+        svg
+            .selectAll("text")
+            .data(nodes)
+            .join("text")
+            .attr("x", function (d) { return d.x0 + 5; })
+            .attr("y", function (d) { return d.y0 + 12; })
+            .text(function (d) {
+                var name = d.data[0]
+                if (name === "") { name = "unamed" }
+                return name
+            })
+            .attr("opacity", function (d) {
+                if ((d.x1 - d.x0) > 60) { return 1 }
+                return 0
+            })
+            .attr("id", function (d, i) {
+                var name = d.data[0]
+                if (name === "") { name = "unamed" }
+                return name + i
+            })
+
+
+
+
+    </script>
+</body>
+
+</html>

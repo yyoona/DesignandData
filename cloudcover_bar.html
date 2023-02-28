@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <!-- Load google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap"
+        rel="stylesheet">
+
+    <!-- Load style -->
+    <title>cloud_bar</title>
+    <link rel="stylesheet" href="style_bar.css" />
+    <link rel="icon" type="image/x-icon" href="Images/favicon.ico">
+
+    <!-- Load js files for each month -->
+    <script src="js/january.js"></script>
+    <!-- <script src="js/february.js"></script> -->
+    <!-- <script src="js/march.js"></script> -->
+    <script src="js/april.js"></script>
+    <!-- <script src="js/may.js"></script> -->
+    <script src="js/july.js"></script>
+    <script src="js/october.js"></script>
+
+
+</head>
+
+<body>
+    <div class="title">
+        <p>This page tries to discover the darkest day and month by observing the cloud cover in Finland based on the
+            data of 2022. (Data source: Finnish meteorological institute)</p>
+        <header>
+            <h1>How dark is <br>Finland's sky?</h1>
+            <div class="viewButton">
+                <a href="cloudcover_bar.html"><button class="btn_flow">Cloud<br>Flow</button></a>
+                <a href="cloudcover_map.html"><button class="btn_proportion">Cloud<br>Proportion</button></a>
+            </div>
+        </header>
+    </div>
+
+    <div class="split_01">
+        <article class="split_01_left">
+            <div class="month_button">
+                <div class="CurrentMonth">January</div>
+                <div id="Average">
+                    <div id="description">The average cloud cover</div>
+                    <div id="number_A_1"></div>
+                </div>
+                <div id="Most">
+                    <div id="description">The darkest day</div>
+                    <div id="number_M_1"></div>
+                </div>
+            </div>
+        </article>
+
+        <article class="split_01_right">
+            <div class="scroll_h">
+                <div id="chart_01"></div>
+            </div>
+        </article>
+    </div>
+
+    <div class="split_01">
+        <article class="split_01_left">
+            <div class="month_button">
+                <div class="CurrentMonth">April</div>
+                <div id="Average">
+                    <div id="description">The average cloud cover</div>
+                    <div id="number_A_4"></div>
+                </div>
+                <div id="Most">
+                    <div id="description">The darkest day</div>
+                    <div id="number_M_4"></div>
+                </div>
+            </div>
+        </article>
+
+        <article class="split_01_right">
+            <div class="scroll_h">
+                <div id="chart_04"></div>
+            </div>
+        </article>
+    </div>
+
+    <div class="split_01">
+        <article class="split_01_left">
+            <div class="month_button">
+                <div class="CurrentMonth">July</div>
+                <div id="Average">
+                    <div id="description">The average cloud cover</div>
+                    <div id="number_A_7"></div>
+                </div>
+                <div id="Most">
+                    <div id="description">The darkest day</div>
+                    <div id="number_M_7"></div>
+                </div>
+            </div>
+        </article>
+
+        <article class="split_01_right">
+            <div class="scroll_h">
+                <div id="chart_07"></div>
+            </div>
+        </article>
+    </div>
+
+    <div class="split_01">
+        <article class="split_01_left">
+            <div class="month_button">
+                <div class="CurrentMonth">October</div>
+                <div id="Average">
+                    <div id="description">The average cloud cover</div>
+                    <div id="number_A_10"></div>
+                </div>
+                <div id="Most">
+                    <div id="description">The darkest day</div>
+                    <div id="number_M_10"></div>
+                </div>
+            </div>
+        </article>
+
+        <article class="split_01_right">
+            <div class="scroll_h">
+                <div id="chart_10"></div>
+            </div>
+        </article>
+    </div>
+
+
+
+</html>

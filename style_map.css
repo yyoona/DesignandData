@@ -1,0 +1,224 @@
+html {
+    overflow-x: hidden;
+    background-color: #d3e5ff;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    margin-left: 30px;
+    margin-right: 30px;
+    min-width: 300px;
+}
+
+body {
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+    overflow: visible;
+}
+
+svg {
+    margin-top: 50px;
+    background-color: none;
+    overflow: visible;
+    width: 70vw;
+    font-size: 0.8em;
+    font-weight: 800;
+}
+
+
+rect {
+    fill: #878787;
+    fill-opacity: 0.25;
+    stroke: #d3e5ff;
+    stroke-linecap: round;
+    stroke-width: 3px;
+    border-radius: 25px;
+
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+}
+
+
+h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1.4em;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+article {
+    display: block;
+}
+
+button {
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+}
+
+button.hover {
+    color: #d3e5ff;
+    background-color: black;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #d3e5ff;
+}
+
+.viewButton {
+    position: absolute;
+    margin-top: 36px;
+    margin-right: 40px;
+    right: 0px;
+}
+
+button.btn_flow:hover,
+button.btn_proportion:hover {
+    color: #d3e5ff;
+    background-color: black;
+    cursor: pointer;
+}
+
+.btn_flow {
+    font-size: 1.2em;
+    font-weight: 500;
+    width: 150px;
+    background-color: #d3e5ffd3;
+    border: solid 1px black;
+    border-radius: 30px;
+    margin-right: 5px;
+}
+
+.btn_proportion {
+    font-size: 1.2em;
+    font-weight: 500;
+    width: 150px;
+    color: black;
+    background-color: #87878786;
+    border: solid 1px black;
+    border-radius: 30px;
+    margin-left: 5px;
+}
+
+.split_01 {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.split_01_left {
+    width: 20vw;
+    height: 400px;
+    background-color: #d3e5ff;
+}
+
+.split_01_right {
+    width: 70vw;
+    align-content: center;
+    text-align: center;
+}
+
+.scroll_h {
+    background-color: #d3e5ff;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.month_button {
+    position: relative;
+    top: 32.5%;
+}
+
+.CurrentMonth {
+    display: block;
+    background-color: #d3e5ff;
+    color: black;
+    width: 20vw;
+    text-align: left;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+#Average {
+    display: block;
+    width: 20vw;
+    background-color: #d3e5ff;
+    color: black;
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+#description {
+    padding-bottom: 10px;
+    border-bottom: solid 1px black;
+}
+
+#number_A_1,
+#number_A_2,
+#number_A_4,
+#number_A_7,
+#number_A_10 {
+    padding-top: 10px;
+}
+
+#Most {
+    display: block;
+    width: 20vw;
+    background-color: #d3e5ff;
+    color: black;
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+#number_M_1,
+#number_M_4,
+#number_M_7,
+#number_M_10 {
+    padding-top: 10px;
+}
+
+#chart_01,
+#chart_04,
+#chart_07,
+#chart_10 {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 400px;
+    z-index: 999;
+}
+
+@media screen and (max-width: 900px) {
+
+    h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        line-height: 1.2em;
+        margin-top: 120px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+
+    }
+}
